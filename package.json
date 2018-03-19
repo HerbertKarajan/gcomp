@@ -1,0 +1,40 @@
+{
+  "name": "gcompiler",
+  "version": "1.0.0",
+  "description": "Template Compiler",
+  "readmeFilename": "README.md",
+  "main": "gcomp.js",
+  "author": "karajan",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HerbertKarajan/gcompiler.git"
+  },
+  "keywords": [
+    "template",
+    "artTemplate",
+    "TemplateJS",
+    "CommonJS",
+    "RequireJS",
+    "SeaJS",
+    "AMD",
+    "CMD"
+  ],
+  "bin": {
+    "gcomp": "./bin/gcomp",
+    "gcompiler": "./bin/gcompiler"
+  },
+  "scripts": {
+    "test": "gcomp ./test/tpl",
+    "test2": "gcomp ./test/test-all/*"
+  },
+  "dependencies": {
+    "art-template": "3.0.x",
+    "uglify-js": "2.4.0",
+    "semver": "2.3.0"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/HerbertKarajan/gcompiler/issues"
+  },
+  "homepage": "https://github.com/HerbertKarajan/gcompiler#readme"
+}
