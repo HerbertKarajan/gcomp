@@ -1,13 +1,13 @@
 {
-  "name": "gcompiler",
-  "version": "1.0.1",
+  "name": "gcomp",
+  "version": "1.0.0",
   "description": "Template Compiler",
   "readmeFilename": "README.md",
   "main": "gcomp.js",
   "author": "karajan",
   "repository": {
     "type": "git",
-    "url": "https://github.com/HerbertKarajan/gcompiler.git"
+    "url": "https://github.com/HerbertKarajan/gcomp.git"
   },
   "keywords": [
     "template",
@@ -21,7 +21,7 @@
   ],
   "bin": {
     "gcomp": "./bin/gcomp",
-    "gcompiler": "./bin/gcompiler"
+    "gcompjs": "./bin/gcomp"
   },
   "scripts": {
     "test": "gcomp ./test/tpl",
@@ -34,7 +34,7 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/HerbertKarajan/gcompiler/issues"
+    "url": "https://github.com/HerbertKarajan/gcomp/issues"
   },
-  "homepage": "https://github.com/HerbertKarajan/gcompiler#readme"
+  "homepage": "https://github.com/HerbertKarajan/gcomp#readme"
 }

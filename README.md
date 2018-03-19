@@ -1,8 +1,8 @@
-# Gcompiler
+# Gcomp
 
-### Gcompiler安装
+### Gcomp安装
 ```
-npm install -g gcompiler
+npm install -g gcomp
 ```
 
 ### Gcompiler 对 TmodJS 的修改
@@ -13,16 +13,16 @@ npm install -g gcompiler
 gomeTemplate('tpl-name', data);
 ```
 - 命令操作由 `tmod` 修改为 `gcomp`
-- 模板根目录的配置文件由 `package.json` 修改为 `gcompiler-config.json`
-- `gcompiler-config.json` 格式参考：
+- 模板根目录的配置文件由 `package.json` 修改为 `gcomp-config.json`
+- `gcomp-config.json` 格式参考：
 ````
 {
     "name": "template",
     "version": "1.0.0",
     "dependencies": {
-        "gcompiler": "1.0.0"
+        "gcomp": "1.0.0"
     },
-    "gcompiler-config": {
+    "gcomp-config": {
         "output": "./build",
         "charset": "utf-8",
         "syntax": "simple",
@@ -42,12 +42,12 @@ gomeTemplate('tpl-name', data);
     - 带seajs用法：`test/test-mutil-combojs/test-with-seajs.html`
     - 不带seajs用法：`test/test-mutil-combojs/test-without-seajs.html`
 
-### ================**Gcompiler 介绍如下**================
-# Gcompiler
+### ================**Gcomp 介绍如下**================
+# Gcomp
 
 > 项目停止维护
 
-Gcompiler 是一个简单易用的前端模板预编译工具。它通过预编译技术让前端模板突破浏览器限制，实现后端模板一样的同步“文件”加载能力。它采用目录来组织维护前端模板，从而让前端模板实现工程化管理，最终保证前端模板在复杂单页 web 应用下的可维护性。同时预编译输出的代码经过多层优化，能够在最大程度节省客户端资源消耗。
+Gcomp 是一个简单易用的前端模板预编译工具。它通过预编译技术让前端模板突破浏览器限制，实现后端模板一样的同步“文件”加载能力。它采用目录来组织维护前端模板，从而让前端模板实现工程化管理，最终保证前端模板在复杂单页 web 应用下的可维护性。同时预编译输出的代码经过多层优化，能够在最大程度节省客户端资源消耗。
 
 一、**按文件与目录组织模板**
 
@@ -61,7 +61,7 @@ template('tpl/home/main', data)
 {{include '../public/header'}}
 ```
 
-Gcompiler 一经启动，就无需人工干预，每次模板创建与更新都会自动编译，引入一个 js 即可使用``template(path)``接口调用本地模板文件，直到正式上线都无需对代码进行任何修改，整个过程简单自然。
+Gcomp 一经启动，就无需人工干预，每次模板创建与更新都会自动编译，引入一个 js 即可使用``template(path)``接口调用本地模板文件，直到正式上线都无需对代码进行任何修改，整个过程简单自然。
 
 ##  所有特性
 
@@ -98,14 +98,14 @@ Gcompiler 一经启动，就无需人工干预，每次模板创建与更新都�
 使用 [NodeJS](http://nodejs.org) 附带的``npm``命令，执行：
 
 ```
-npm install -g gcompiler
+npm install -g gcomp
 ``` 
 
-> Mac OSX 可能需要管理员权限运行： ``sudo npm install -g gcompiler``
+> Mac OSX 可能需要管理员权限运行： ``sudo npm install -g gcomp``
 
 ##  编写模板
 
-Gcompiler 的前端模板不再耦合在业务页面中，而是和后端模板一样有专门的目录管理。目录名称只支持英文、数字、下划线的组合，一个模板对应一个``.html``文件。
+Gcomp 的前端模板不再耦合在业务页面中，而是和后端模板一样有专门的目录管理。目录名称只支持英文、数字、下划线的组合，一个模板对应一个``.html``文件。
 
 支持基本的模板语法，如输出变量、条件判断、循环、包含子模板。[模板语法参考](https://github.com/aui/tmodjs/wiki/模板语法)
 
@@ -119,7 +119,7 @@ Gcompiler 的前端模板不再耦合在业务页面中，而是和后端模板�
 gcomp [模板目录] [配置参数]
 ```
 
-模板目录必须是模板的根目录，若无参数则为默认使用当前工作目录，gcompiler 会监控模板目录修改，每次模板修改都会增量编译。
+模板目录必须是模板的根目录，若无参数则为默认使用当前工作目录，gcomp 会监控模板目录修改，每次模板修改都会增量编译。
 
 ### 配置参数
             
@@ -145,7 +145,7 @@ gcomp ./tpl --output ./build
 
 ### 使用默认的格式
 
-Gcompiler 默认将整个目录的模板压缩打包到一个名为 template.js 的脚本中，可直接在页面中使用它：
+Gcomp 默认将整个目录的模板压缩打包到一个名为 template.js 的脚本中，可直接在页面中使用它：
 
     <script src="tpl/build/template.js"></script>
     <script>
