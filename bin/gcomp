@@ -2,7 +2,7 @@
 
 'use strict';
 
-var TmodJS = require('../src/gmod.js');
+var Gcompiler = require('../src/gcomp.js');
 var version = require('../package.json').version;
 
 var fs = require('fs');
@@ -15,10 +15,10 @@ var options = {};
 
 var help = function () {
     var message = [
-        '\x1B[7mTmodJS - Template Compiler\x1B[27m',
+        '\x1B[7mGcompiler - Template Compiler\x1B[27m',
         '',
         'Usage',
-        '    tmod <path> [options]',
+        '    gcomp <path> [options]',
         '',
         'Options',
         [
@@ -176,17 +176,17 @@ if (!fs.existsSync(base)) {
 }
 
 
-var tmodjs = new TmodJS(base, options);
+var gcomp = new Gcompiler(base, options);
 
 
-tmodjs.on('compileError', function (data) {
+gcomp.on('compileError', function (data) {
     if (!isWatch) {
         process.exit(1);
     }
 });
 
 
-userConfig = tmodjs.saveConfig();
+userConfig = gcomp.saveConfig();
 
 
 if (isEditConfig) {
@@ -201,10 +201,10 @@ if (isEditConfig) {
 
 } else {
 
-    tmodjs.compile();
+    gcomp.compile();
 
     if (isWatch) {
-        tmodjs.watch();
+        gcomp.watch();
     }
     
 }
