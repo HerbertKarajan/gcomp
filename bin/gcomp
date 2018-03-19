@@ -2,7 +2,7 @@
 
 'use strict';
 
-var Gcompiler = require('../src/gcomp.js');
+var Gcomp = require('../src/gcomp.js');
 var version = require('../package.json').version;
 
 var fs = require('fs');
@@ -15,7 +15,7 @@ var options = {};
 
 var help = function () {
     var message = [
-        '\x1B[7mGcompiler - Template Compiler\x1B[27m',
+        '\x1B[7mGcomp - Template Compiler\x1B[27m',
         '',
         'Usage',
         '    gcomp <path> [options]',
@@ -28,11 +28,11 @@ var help = function () {
             ' --output value  Defining an output directory',
             '--charset value  Charset, "utf-8" by default',
             '     --no-watch  Does not monitor template directory',
-            '      --version  Print the tmodjs version',
+            '      --version  Print the gcomp version',
             '        --help   Display this help text'
         ].join('\n'),
         '',
-        '\x1B[90m' + 'Documentation can be found at https://github.com/aui/tmodjs' + '\x1B[39m'
+        '\x1B[90m' + 'Documentation can be found at https://github.com/HerbertKarajan/gcomp' + '\x1B[39m'
     ];
 
     message = message.join('\n');
@@ -176,7 +176,7 @@ if (!fs.existsSync(base)) {
 }
 
 
-var gcomp = new Gcompiler(base, options);
+var gcomp = new Gcomp(base, options);
 
 
 gcomp.on('compileError', function (data) {
