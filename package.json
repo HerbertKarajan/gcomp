@@ -28,9 +28,9 @@
     "test2": "gcomp ./test/test-all/*"
   },
   "dependencies": {
-    "art-template": "3.0.x",
-    "uglify-js": "2.4.0",
-    "semver": "2.3.0"
+    "art-template": "3.0.0",
+    "uglify-js": "2.6.0",
+    "semver": "4.3.2"
   },
   "license": "MIT",
   "bugs": {
