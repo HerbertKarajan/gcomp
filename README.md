@@ -2,7 +2,7 @@
 
 ### Gcompiler安装
 ```
-npm install -g Gcompiler
+npm install -g gcompiler
 ```
 
 ### Gcompiler 对 TmodJS 的修改
