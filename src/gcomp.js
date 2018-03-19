@@ -1,6 +1,6 @@
 /*!
  * TmodJS - AOT Template Compiler
- * https://github.com/midday/gcompiler
+ * https://github.com/HerbertKarajan/gcomp
  * Released under the MIT, BSD, and GPL Licenses
  */
 
@@ -181,7 +181,7 @@ var Tmod = function (base, options) {
 
 
 // 默认配置
-// 用户配置将保存到模板根目录 gcompiler-config.json 文件中
+// 用户配置将保存到模板根目录 gcomp-config.json 文件中
 Tmod.defaults = defaults;
 
 
@@ -199,7 +199,7 @@ Tmod.prototype = {
             return this.options;
         }
 
-        var file = path.join(this.base, 'gcompiler-config.json');
+        var file = path.join(this.base, 'gcomp-config.json');
 
         var defaults = Tmod.defaults;
         var json = null;
@@ -207,7 +207,7 @@ Tmod.prototype = {
         var config = {};
 
 
-        // 读取目录中 gcompiler-config.json
+        // 读取目录中 gcomp-config.json
         if (fs.existsSync(file)) {
             var fileContent = fs.readFileSync(file, 'utf-8');
 
@@ -221,31 +221,31 @@ Tmod.prototype = {
 
             json = {
                 "name": 'template',
-                "version": '1.0.0',
+                "version": '1.0.1',
                 "dependencies": {
-                    "gcompiler": "1.0.0"
+                    "gcomp": "1.0.1"
                 },
-                "gcompiler-config": {}
+                "gcomp-config": {}
             };
 
         }
 
-        //有些项目的gcompiler-config.json里只有devDependencies而没有dependencies
-        //那么下面的replace那行代码就会出现can't read property 'gcompiler' of undefined的错误
+        //有些项目的gcomp-config.json里只有devDependencies而没有dependencies
+        //那么下面的replace那行代码就会出现can't read property 'gcomp' of undefined的错误
         //这里添加容错逻辑
 
         if (!json.dependencies) {
             json.dependencies = json.devDependencies;
         }
 
-        var targetVersion = json.dependencies.gcompiler.replace(/^~/, '');
+        var targetVersion = json.dependencies.gcomp.replace(/^~/, '');
 
 
 
         try {
             // 比较模板项目版本号
             if (semver.lt(version, targetVersion)) {
-                this.log('[red]You must upgrade to the latest version of gcompiler![/red]\n');
+                this.log('[red]You must upgrade to the latest version of gcomp![/red]\n');
                 this.log('Local:  ' + version + '\n')
                 this.log('Target: ' + targetVersion + '\n');
                 process.exit(1);
@@ -255,7 +255,7 @@ Tmod.prototype = {
 
 
         // 更新模板项目的依赖版本信息
-        json.dependencies.gcompiler = version;
+        json.dependencies.gcomp = version;
 
 
         // 来自 Tmod.defaults
@@ -264,9 +264,9 @@ Tmod.prototype = {
         }
 
 
-        // 来自 gcompiler-config.json 文件
-        for (name in json['gcompiler-config']) {
-            config[name] = json['gcompiler-config'][name];
+        // 来自 gcomp-config.json 文件
+        for (name in json['gcomp-config']) {
+            config[name] = json['gcomp-config'][name];
         }
 
 
@@ -278,10 +278,10 @@ Tmod.prototype = {
         }
 
 
-        config = this._fixConfig(config, defaults, json['gcompiler-config'], options);
+        config = this._fixConfig(config, defaults, json['gcomp-config'], options);
 
-        json['gcompiler-config'] = config;
-        this['gcompiler-config.json'] = json;
+        json['gcomp-config'] = config;
+        this['gcomp-config.json'] = json;
         this.projectVersion = json.version;
 
         return config;
@@ -294,9 +294,9 @@ Tmod.prototype = {
      */
     saveConfig: function () {
 
-        var file = path.join(this.base, 'gcompiler-config.json');
-        var configName = 'gcompiler-config';
-        var json = this['gcompiler-config.json'];
+        var file = path.join(this.base, 'gcomp-config.json');
+        var configName = 'gcomp-config';
+        var json = this['gcomp-config.json'];
 
         var options = json[configName];
         var userConfigList = Object.keys(Tmod.defaults);
@@ -892,7 +892,7 @@ Tmod.prototype = {
         }
 
 
-        var newMd5 = this._getMd5(source + JSON.stringify(this['gcompiler-config.json']));
+        var newMd5 = this._getMd5(source + JSON.stringify(this['gcomp-config.json']));
 
         // 如果开启了合并，编译后的文件使用缓存目录保存
         if (isCacheDir) {

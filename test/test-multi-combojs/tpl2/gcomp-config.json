@@ -1,10 +1,10 @@
 {
     "name": "template",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "dependencies": {
-        "gcompiler": "1.0.0"
+        "gcomp": "1.0.1"
     },
-    "gcompiler-config": {
+    "gcomp-config": {
         "output": "../build",
         "charset": "utf-8",
         "syntax": "simple",

@@ -5,7 +5,7 @@
 npm install -g gcomp
 ```
 
-### Gcompiler 对 TmodJS 的修改
+### Gcomp 对 TmodJS 的修改
 
 - 修复同一页面引入多个`预编译模板 js `后的模板覆盖问题
 - 模板全局变量由 `template` 修改为 `gomeTemplate`，使用时语法参考：
